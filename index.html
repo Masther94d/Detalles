@@ -10,7 +10,7 @@
    
 </head>
 <body>
-
+<div id="particles-js"></div>
 <div class="card">
     <div class="profile-container">
         <img src="img/logo.png" alt="Detalles con Amor - Logo">
@@ -69,6 +69,29 @@
     }
 </script>
 
+<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+<script>
+    particlesJS("particles-js", {
+        "particles": {
+            "number": { "value": 15, "density": { "enable": true, "value_area": 800 } },
+            "color": { "value": "#ffffff" }, // Color de los pétalos/corazones
+            "shape": {
+                "type": "image",
+                "image": {
+                    // Puedes usar un link a un icono de corazón o pétalo PNG transparente
+                    "src": "https://cdn-icons-png.flaticon.com/512/833/833472.png", 
+                    "width": 100, "height": 100
+                }
+            },
+            "opacity": { "value": 0.3, "random": true },
+            "size": { "value": 10, "random": true },
+            "move": { "enable": true, "speed": 2, "direction": "bottom", "random": true, "straight": false, "out_mode": "out" }
+        },
+        "interactivity": { "detect_on": "canvas", "events": { "onhover": { "enable": false }, "onclick": { "enable": false } } },
+        "retina_detect": true
+    });
+</script>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"></script>
 <script>
     // Inicializamos el efecto en la tarjeta
@@ -85,6 +108,8 @@
         // Aquí podrías integrar una librería como canvas-confetti si quieres algo pro
     });
 </script>
+
+
 
 </body>
 </html>
