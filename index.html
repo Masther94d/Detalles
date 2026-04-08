@@ -4,120 +4,119 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Detalles con Amor - Contacto</title>
+    
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="style/style.css">
+    
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    
+    <link rel="stylesheet" href="style/style.css">
 </head>
 <body>
 
-<div id="particles-js"></div>
+    <div id="particles-js"></div>
 
-<div class="card">
-    <div class="profile-container">
-        <img src="img/logo.png" alt="Detalles con Amor - Logo">
-    </div>
-    
-    <h2>Detalles con Amor 🎁</h2>
-    <span class="subtitle">Pequeños detalles, grandes emociones</span>
-    <div class="swiper mySwiper">
-    <div class="swiper-wrapper">
-        <div class="swiper-slide"><img src="img/img1.jpeg" alt="Detalle 1"></div>
-        <div class="swiper-slide"><img src="img/img2.jpeg" alt="Detalle 2"></div>
-        <div class="swiper-slide"><img src="img/img3.jpeg" alt="Detalle 3"></div>
-        <div class="swiper-slide"><img src="img/img4.jpeg" alt="Detalle 4"></div>
-    </div>
-    <div class="swiper-pagination"></div>
-       <hr style="border: 0; border-top: 1px solid #eee; margin: 10px 0;">
-</div>
-    <div class="links-container">
-        <a href="https://wa.me/5214791385172" class="btn-whatsapp">
-            <i class="fab fa-whatsapp"></i> WhatsApp
-        </a>
+    <div class="card">
+        <div class="profile-container">
+            <img src="img/logo.png" alt="Detalles con Amor - Logo">
+        </div>
         
-        <a href="https://www.facebook.com/profile.php?id=61572496917401" class="btn-facebook">
-            <i class="fab fa-facebook-f"></i> Facebook
-        </a>
-        
-        <a href="#" class="btn-insta">
-            <i class="fab fa-instagram"></i> Instagram
-        </a>
-
-        <a href="#" class="btnnstprdt">
-            <i class="fa-solid fa-gift"></i> Nuestros productos
-        </a>
-
-       
-
-        <a onclick="downloadVCF()" class="btn-vcf">
-            <i class="fas fa-user-plus"></i> Guardar Contacto
-        </a>
-
-      
+        <h2>Detalles con Amor 🎁</h2>
+        <span class="subtitle">Pequeños detalles, grandes emociones</span>
 
         <div class="gallery-title">Nuestros Detalles</div>
-
-
         
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"><img src="img/img1.jpeg" alt="Detalle 1"></div>
+                <div class="swiper-slide"><img src="img/img2.jpeg" alt="Detalle 2"></div>
+                <div class="swiper-slide"><img src="img/img3.jpeg" alt="Detalle 3"></div>
+                <div class="swiper-slide"><img src="img/img4.jpeg" alt="Detalle 4"></div>
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+
+        <hr style="border: 0; border-top: 1px solid #eee; margin: 15px 0 25px 0;">
+
+        <div class="links-container">
+            <a href="https://wa.me/5214791385172" class="btn-whatsapp">
+                <i class="fab fa-whatsapp"></i> WhatsApp
+            </a>
+            
+            <a href="https://www.facebook.com/profile.php?id=61572496917401" class="btn-facebook">
+                <i class="fab fa-facebook-f"></i> Facebook
+            </a>
+            
+            <a href="#" class="btn-insta">
+                <i class="fab fa-instagram"></i> Instagram
+            </a>
+
+            <a href="catalogo.html" class="btnnstprdt">
+                <i class="fa-solid fa-gift"></i> Nuestros productos
+            </a>
+
+            <a onclick="downloadVCF()" class="btn-vcf">
+                <i class="fas fa-user-plus"></i> Guardar Contacto
+            </a>
+        </div>
     </div>
-</div>
 
-<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
-<script>
-    // Inicializar Partículas
-    particlesJS("particles-js", {
-        "particles": {
-            "number": { "value": 15, "density": { "enable": true, "value_area": 800 } },
-            "shape": {
-                "type": "image",
-                "image": { "src": "https://cdn-icons-png.flaticon.com/512/833/833472.png", "width": 100, "height": 100 }
-            },
-            "opacity": { "value": 0.3, "random": true },
-            "size": { "value": 10, "random": true },
-            "move": { "enable": true, "speed": 2, "direction": "bottom", "out_mode": "out" }
-        }
-    });
-
-
-    // Confeti al tocar el logo
-    document.querySelector('.profile-container').addEventListener('click', () => {
-        confetti({
-            particleCount: 100,
-            spread: 70,
-            origin: { y: 0.6 },
-            colors: ['#E21C7F', '#FF69B4', '#ffffff']
+    <script>
+        // Inicializar Partículas (Corazones)
+        particlesJS("particles-js", {
+            "particles": {
+                "number": { "value": 15, "density": { "enable": true, "value_area": 800 } },
+                "shape": {
+                    "type": "image",
+                    "image": { "src": "https://cdn-icons-png.flaticon.com/512/833/833472.png", "width": 100, "height": 100 }
+                },
+                "opacity": { "value": 0.3, "random": true },
+                "size": { "value": 10, "random": true },
+                "move": { "enable": true, "speed": 2, "direction": "bottom", "out_mode": "out" }
+            }
         });
-    });
 
-    // Función VCF
-    function downloadVCF() {
-        const vcard = "BEGIN:VCARD\nVERSION:3.0\nFN:Detalles con Amor (Jessica)\nTEL;TYPE=CELL:+5214791385172\nEND:VCARD";
-        const blob = new Blob([vcard], { type: "text/vcard" });
-        const url = window.URL.createObjectURL(blob);
-        const newLink = document.createElement("a");
-        newLink.href = url;
-        newLink.setAttribute("download", "Jessica_Detalles.vcf");
-        newLink.click();
-    }
-</script>
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-<script>
-    const swiper = new Swiper(".mySwiper", {
-        effect: "cards", // Efecto tipo "mazo de cartas" que va genial con el 3D
-        grabCursor: true,
-        loop: true,
-        autoplay: {
-            delay: 2500,
-            disableOnInteraction: false,
-        },
-        pagination: {
-            el: ".swiper-pagination",
-            dynamicBullets: true,
-        },
-    });
-</script>
+        // NOTA: Se eliminó el script de VanillaTilt (efecto 3D).
+
+        // Confeti de corazones al tocar el logo
+        document.querySelector('.profile-container').addEventListener('click', () => {
+            confetti({
+                particleCount: 100,
+                spread: 70,
+                origin: { y: 0.6 },
+                colors: ['#E21C7F', '#FF69B4', '#ffffff']
+            });
+        });
+
+        // Generar archivo VCF para descargar contacto
+        function downloadVCF() {
+            const vcard = "BEGIN:VCARD\nVERSION:3.0\nFN:Detalles con Amor (Jessica)\nTEL;TYPE=CELL:+5214791385172\nEND:VCARD";
+            const blob = new Blob([vcard], { type: "text/vcard" });
+            const url = window.URL.createObjectURL(blob);
+            const newLink = document.createElement("a");
+            newLink.href = url;
+            newLink.setAttribute("download", "Jessica_Detalles.vcf");
+            newLink.click();
+        }
+
+        // Configuración del Slider de Imágenes
+        const swiper = new Swiper(".mySwiper", {
+            effect: "cards",
+            grabCursor: true,
+            loop: true,
+            autoplay: {
+                delay: 2500,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: ".swiper-pagination",
+                dynamicBullets: true,
+            },
+        });
+    </script>
 </body>
 </html>
