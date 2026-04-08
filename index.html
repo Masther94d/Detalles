@@ -5,12 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Detalles con Amor - Contacto</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css ">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="style/style.css">
-   
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 </head>
 <body>
+
 <div id="particles-js"></div>
+
 <div class="card">
     <div class="profile-container">
         <img src="img/logo.png" alt="Detalles con Amor - Logo">
@@ -31,85 +33,97 @@
         <a href="#" class="btn-insta">
             <i class="fab fa-instagram"></i> Instagram
         </a>
-        <div class="gallery-title">Nuestros Detalles</div>
-<div class="image-grid">
-    <div class="grid-item"><img src="img/img1.jpeg" alt="Detalle 1"></div>
-    <div class="grid-item"><img src="img/img2.jpeg" alt="Detalle 2"></div>
-    <div class="grid-item"><img src="img/img3.jpeg" alt="Detalle 3"></div>
-    <div class="grid-item"><img src="img/img4.jpeg" alt="Detalle 4"></div>
-</div>
-        <hr style="border: 0; border-top: 1px solid #eee; margin: 10px 0;">
+
+        <a href="#" class="btnnstprdt">
+            <i class="fa-solid fa-gift"></i> Nuestros productos
+        </a>
+
+       
 
         <a onclick="downloadVCF()" class="btn-vcf">
             <i class="fas fa-user-plus"></i> Guardar Contacto
         </a>
+
+         <hr style="border: 0; border-top: 1px solid #eee; margin: 10px 0;">
+
+        <div class="gallery-title">Nuestros Detalles</div>
+<div class="swiper mySwiper">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide"><img src="img/img1.jpeg" alt="Detalle 1"></div>
+        <div class="swiper-slide"><img src="img/img2.jpeg" alt="Detalle 2"></div>
+        <div class="swiper-slide"><img src="img/img3.jpeg" alt="Detalle 3"></div>
+        <div class="swiper-slide"><img src="img/img4.jpeg" alt="Detalle 4"></div>
+    </div>
+    <div class="swiper-pagination"></div>
+</div>
+
+        
     </div>
 </div>
 
+<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+
 <script>
+    // Inicializar Partículas
+    particlesJS("particles-js", {
+        "particles": {
+            "number": { "value": 15, "density": { "enable": true, "value_area": 800 } },
+            "shape": {
+                "type": "image",
+                "image": { "src": "https://cdn-icons-png.flaticon.com/512/833/833472.png", "width": 100, "height": 100 }
+            },
+            "opacity": { "value": 0.3, "random": true },
+            "size": { "value": 10, "random": true },
+            "move": { "enable": true, "speed": 2, "direction": "bottom", "out_mode": "out" }
+        }
+    });
+
+    // Efecto 3D en la tarjeta
+    VanillaTilt.init(document.querySelector(".card"), {
+        max: 10,
+        speed: 400,
+        glare: true,
+        "max-glare": 0.4,
+    });
+
+    // Confeti al tocar el logo
+    document.querySelector('.profile-container').addEventListener('click', () => {
+        confetti({
+            particleCount: 100,
+            spread: 70,
+            origin: { y: 0.6 },
+            colors: ['#E21C7F', '#FF69B4', '#ffffff']
+        });
+    });
+
+    // Función VCF
     function downloadVCF() {
-        // Configuramos la VCard con los datos reales
-        const vcard = "BEGIN:VCARD\n" +
-                      "VERSION:3.0\n" +
-                      "FN:Detalles con Amor (Jessica)\n" +
-                      "ORG:Detalles con Amor;\n" +
-                      "TEL;TYPE=CELL:+5214791385172\n" +
-                      "NOTE:Negocio de Regalos y Detalles\n" +
-                      "URL:https://www.facebook.com/profile.php?id=61572496917401\n" +
-                      "END:VCARD";
-        
+        const vcard = "BEGIN:VCARD\nVERSION:3.0\nFN:Detalles con Amor (Jessica)\nTEL;TYPE=CELL:+5214791385172\nEND:VCARD";
         const blob = new Blob([vcard], { type: "text/vcard" });
         const url = window.URL.createObjectURL(blob);
         const newLink = document.createElement("a");
         newLink.href = url;
-        newLink.setAttribute("download", "Jessica_Detalles_con_Amor.vcf");
+        newLink.setAttribute("download", "Jessica_Detalles.vcf");
         newLink.click();
-        // Limpieza de memoria
-        window.URL.revokeObjectURL(url);
     }
 </script>
-
-<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script>
-    particlesJS("particles-js", {
-        "particles": {
-            "number": { "value": 15, "density": { "enable": true, "value_area": 800 } },
-            "color": { "value": "#ffffff" }, // Color de los pétalos/corazones
-            "shape": {
-                "type": "image",
-                "image": {
-                    // Puedes usar un link a un icono de corazón o pétalo PNG transparente
-                    "src": "https://cdn-icons-png.flaticon.com/512/833/833472.png", 
-                    "width": 100, "height": 100
-                }
-            },
-            "opacity": { "value": 0.3, "random": true },
-            "size": { "value": 10, "random": true },
-            "move": { "enable": true, "speed": 2, "direction": "bottom", "random": true, "straight": false, "out_mode": "out" }
+    const swiper = new Swiper(".mySwiper", {
+        effect: "cards", // Efecto tipo "mazo de cartas" que va genial con el 3D
+        grabCursor: true,
+        loop: true,
+        autoplay: {
+            delay: 2500,
+            disableOnInteraction: false,
         },
-        "interactivity": { "detect_on": "canvas", "events": { "onhover": { "enable": false }, "onclick": { "enable": false } } },
-        "retina_detect": true
+        pagination: {
+            el: ".swiper-pagination",
+            dynamicBullets: true,
+        },
     });
 </script>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"></script>
-<script>
-    // Inicializamos el efecto en la tarjeta
-    VanillaTilt.init(document.querySelector(".card"), {
-        max: 10,           // Máxima inclinación (en grados)
-        speed: 400,        // Velocidad de la transición
-        glare: true,       // Activa un reflejo de luz
-        "max-glare": 0.5,  // Intensidad del reflejo
-    });
-
-    // Función extra: Confeti de corazones al hacer clic en el Logo
-    document.querySelector('.profile-container').addEventListener('click', () => {
-        alert("¡Gracias por visitar Detalles con Amor! ❤️");
-        // Aquí podrías integrar una librería como canvas-confetti si quieres algo pro
-    });
-</script>
-
-
-
 </body>
 </html>
