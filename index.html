@@ -28,10 +28,19 @@
         
         <div class="swiper mySwiper">
             <div class="swiper-wrapper">
-                <div class="swiper-slide"><img src="img/img1.jpeg" alt="Detalle 1"></div>
-                <div class="swiper-slide"><img src="img/img2.jpeg" alt="Detalle 2"></div>
-                <div class="swiper-slide"><img src="img/img3.jpeg" alt="Detalle 3"></div>
-                <div class="swiper-slide"><img src="img/img4.jpeg" alt="Detalle 4"></div>
+                <div class="swiper-slide"><img src="img/slide/1.png" alt="Detalle 1"></div>
+                <div class="swiper-slide"><img src="img/slide/2.png" alt="Detalle 2"></div>
+                <div class="swiper-slide"><img src="img/slide/3.png" alt="Detalle 3"></div>
+                <div class="swiper-slide"><img src="img/slide/4.png" alt="Detalle 4"></div>
+                <div class="swiper-slide"><img src="img/slide/5.png" alt="Detalle 5"></div> 
+                <div class="swiper-slide"><img src="img/slide/6.png" alt="Detalle 6"></div>
+                <div class="swiper-slide"><img src="img/slide/7.png" alt="Detalle 7"></div>
+                <div class="swiper-slide"><img src="img/slide/8.png" alt="Detalle 8"></div>
+                <div class="swiper-slide"><img src="img/slide/9.png" alt="Detalle 9"></div>
+                <div class="swiper-slide"><img src="img/slide/10.png" alt="Detalle 10"></div>
+                <div class="swiper-slide"><img src="img/slide/11.png" alt="Detalle 11"></div>
+
+
             </div>
             <div class="swiper-pagination"></div>
         </div>
@@ -105,18 +114,27 @@
 
         // Configuración del Slider de Imágenes
         const swiper = new Swiper(".mySwiper", {
-            effect: "cards",
-            grabCursor: true,
-            loop: true,
-            autoplay: {
-                delay: 2500,
-                disableOnInteraction: false,
-            },
-            pagination: {
-                el: ".swiper-pagination",
-                dynamicBullets: true,
-            },
-        });
+    effect: "coverflow", // Efecto tipo flujo de portada
+    grabCursor: true,
+    centeredSlides: true,
+    slidesPerView: "auto",
+    coverflowEffect: {
+        rotate: 30,    // Grado de rotación de las fotos laterales
+        stretch: 0,
+        depth: 100,
+        modifier: 1,
+        slideShadows: true,
+    },
+    loop: true,
+    autoplay: {
+        delay: 3000,
+        disableOnInteraction: false,
+    },
+    pagination: {
+        el: ".swiper-pagination",
+        dynamicBullets: true,
+    },
+});
     </script>
 </body>
 </html>
