@@ -7,10 +7,37 @@
     
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-    
     <link rel="stylesheet" href="style/style.css">
+
+    <style>
+        /* Estilos para el Lightbox en el Index */
+        .lightbox {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(10px);
+            align-items: center;
+            justify-content: center;
+            cursor: zoom-out;
+            animation: fadeIn 0.3s ease;
+        }
+        .lightbox img {
+            max-width: 90%;
+            max-height: 80%;
+            border-radius: 15px;
+            transform: scale(0.9);
+            transition: transform 0.3s ease;
+        }
+        .lightbox.active img { transform: scale(1); }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        
+        /* Cursor de lupa en el carrusel */
+        .swiper-slide img { cursor: zoom-in; }
+    </style>
 </head>
 <body>
 
@@ -28,19 +55,17 @@
         
         <div class="swiper mySwiper">
             <div class="swiper-wrapper">
-                <div class="swiper-slide"><img src="img/slide/1.png" alt="Detalle 1"></div>
-                <div class="swiper-slide"><img src="img/slide/2.png" alt="Detalle 2"></div>
-                <div class="swiper-slide"><img src="img/slide/3.png" alt="Detalle 3"></div>
-                <div class="swiper-slide"><img src="img/slide/4.png" alt="Detalle 4"></div>
-                <div class="swiper-slide"><img src="img/slide/5.png" alt="Detalle 5"></div> 
-                <div class="swiper-slide"><img src="img/slide/6.png" alt="Detalle 6"></div>
-                <div class="swiper-slide"><img src="img/slide/7.png" alt="Detalle 7"></div>
-                <div class="swiper-slide"><img src="img/slide/8.png" alt="Detalle 8"></div>
-                <div class="swiper-slide"><img src="img/slide/9.png" alt="Detalle 9"></div>
-                <div class="swiper-slide"><img src="img/slide/10.png" alt="Detalle 10"></div>
-                <div class="swiper-slide"><img src="img/slide/11.png" alt="Detalle 11"></div>
-
-
+                <div class="swiper-slide"><img src="img/slide/1.png" alt="Detalle 1" onclick="openLightbox(this.src)"></div>
+                <div class="swiper-slide"><img src="img/slide/2.png" alt="Detalle 2" onclick="openLightbox(this.src)"></div>
+                <div class="swiper-slide"><img src="img/slide/3.png" alt="Detalle 3" onclick="openLightbox(this.src)"></div>
+                <div class="swiper-slide"><img src="img/slide/4.png" alt="Detalle 4" onclick="openLightbox(this.src)"></div>
+                <div class="swiper-slide"><img src="img/slide/5.png" alt="Detalle 5" onclick="openLightbox(this.src)"></div> 
+                <div class="swiper-slide"><img src="img/slide/6.png" alt="Detalle 6" onclick="openLightbox(this.src)"></div>
+                <div class="swiper-slide"><img src="img/slide/7.png" alt="Detalle 7" onclick="openLightbox(this.src)"></div>
+                <div class="swiper-slide"><img src="img/slide/8.png" alt="Detalle 8" onclick="openLightbox(this.src)"></div>
+                <div class="swiper-slide"><img src="img/slide/9.png" alt="Detalle 9" onclick="openLightbox(this.src)"></div>
+                <div class="swiper-slide"><img src="img/slide/10.png" alt="Detalle 10" onclick="openLightbox(this.src)"></div>
+                <div class="swiper-slide"><img src="img/slide/11.png" alt="Detalle 11" onclick="openLightbox(this.src)"></div>
             </div>
             <div class="swiper-pagination"></div>
         </div>
@@ -51,23 +76,23 @@
             <a href="https://wa.me/5214791385172" class="btn-whatsapp">
                 <i class="fab fa-whatsapp"></i> WhatsApp
             </a>
-            
             <a href="https://www.facebook.com/profile.php?id=61572496917401" class="btn-facebook">
                 <i class="fab fa-facebook-f"></i> Facebook
             </a>
-            
             <a href="#" class="btn-insta">
                 <i class="fab fa-instagram"></i> Instagram
             </a>
-
             <a href="catalogo.html" class="btnnstprdt">
                 <i class="fa-solid fa-gift"></i> Nuestros productos
             </a>
-
             <a onclick="downloadVCF()" class="btn-vcf">
                 <i class="fas fa-user-plus"></i> Guardar Contacto
             </a>
         </div>
+    </div>
+
+    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+        <img id="lightbox-img" src="" alt="Vista ampliada">
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
@@ -75,7 +100,26 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
     <script>
-        // Inicializar Partículas (Corazones)
+        // Lógica del Lightbox
+        function openLightbox(src) {
+            const lb = document.getElementById('lightbox');
+            const img = document.getElementById('lightbox-img');
+            img.src = src;
+            lb.style.display = 'flex';
+            setTimeout(() => lb.classList.add('active'), 10);
+            // Pausar el autoplay del carrusel cuando se abre la imagen
+            swiper.autoplay.stop();
+        }
+
+        function closeLightbox() {
+            const lb = document.getElementById('lightbox');
+            lb.classList.remove('active');
+            setTimeout(() => lb.style.display = 'none', 300);
+            // Reanudar carrusel al cerrar
+            swiper.autoplay.start();
+        }
+
+        // Partículas (Corazones)
         particlesJS("particles-js", {
             "particles": {
                 "number": { "value": 15, "density": { "enable": true, "value_area": 800 } },
@@ -89,9 +133,7 @@
             }
         });
 
-        // NOTA: Se eliminó el script de VanillaTilt (efecto 3D).
-
-        // Confeti de corazones al tocar el logo
+        // Confeti
         document.querySelector('.profile-container').addEventListener('click', () => {
             confetti({
                 particleCount: 100,
@@ -101,7 +143,6 @@
             });
         });
 
-        // Generar archivo VCF para descargar contacto
         function downloadVCF() {
             const vcard = "BEGIN:VCARD\nVERSION:3.0\nFN:Detalles con Amor (Jessica)\nTEL;TYPE=CELL:+5214791385172\nEND:VCARD";
             const blob = new Blob([vcard], { type: "text/vcard" });
@@ -112,29 +153,29 @@
             newLink.click();
         }
 
-        // Configuración del Slider de Imágenes
+        // Swiper
         const swiper = new Swiper(".mySwiper", {
-    effect: "coverflow", // Efecto tipo flujo de portada
-    grabCursor: true,
-    centeredSlides: true,
-    slidesPerView: "auto",
-    coverflowEffect: {
-        rotate: 30,    // Grado de rotación de las fotos laterales
-        stretch: 0,
-        depth: 100,
-        modifier: 1,
-        slideShadows: true,
-    },
-    loop: true,
-    autoplay: {
-        delay: 3000,
-        disableOnInteraction: false,
-    },
-    pagination: {
-        el: ".swiper-pagination",
-        dynamicBullets: true,
-    },
-});
+            effect: "coverflow",
+            grabCursor: true,
+            centeredSlides: true,
+            slidesPerView: "auto",
+            coverflowEffect: {
+                rotate: 30,
+                stretch: 0,
+                depth: 100,
+                modifier: 1,
+                slideShadows: true,
+            },
+            loop: true,
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: ".swiper-pagination",
+                dynamicBullets: true,
+            },
+        });
     </script>
 </body>
 </html>
