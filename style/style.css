@@ -163,8 +163,8 @@ h2 { margin: 0; color: var(--primary); font-weight: 600; font-size: 1.4rem; }
 /* Estilo para el Carrusel Apaisado */
 .mySwiper {
     width: 100%;
-    max-width: 300px; /* Ajusta según el ancho de tu card */
-    height: 180px;    /* Altura menor para efecto apaisado (horizontal) */
+    max-width: 200px; /* Ajusta según el ancho de tu card */
+    height: 320px;    /* Altura menor para efecto apaisado (horizontal) */
     margin: 10px auto;
 }
 
